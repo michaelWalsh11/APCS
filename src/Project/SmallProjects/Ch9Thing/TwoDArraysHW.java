@@ -387,6 +387,8 @@ public class TwoDArraysHW {
         //#14
         System.out.println(positiveMax(thinger));
 
+
+
         //#15
         fillCheckerBoard(ch);
         printMatrix(ch);
