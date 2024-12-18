@@ -1,12 +1,17 @@
 package Project.BigProjects.GameOfLife;
 
+// https://chatgpt.com/share/67632986-17a4-8003-8c33-50391087b490
+
 public class LifeGrid
 {
 
     private int [][] cells;
+    private int [][] visitedCells;
+
     public LifeGrid(int width, int height)
     {
         cells = new int[width][height];
+        visitedCells = new int[width][height];
     }
 
     /**
@@ -32,6 +37,9 @@ public class LifeGrid
 
     /**
      * Makes the next from of the game according to rules
+     * It also uses a second 2d array to determine if it has ever
+     * been occupied
+     * <p>
      * (the rules are AI generated because I didn't want to write
      * them and I wanted to be able to see them)
      * The evolution is based on the following rules:
@@ -41,7 +49,8 @@ public class LifeGrid
      *   <li>Any live cell with more than three live neighbors dies, as if by overpopulation.</li>
      *   <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
      * </ul>
-     * After applying these rules to all cells in the grid, the state is updated to reflect the next generation.
+     * After applying these rules to all cells in the grid,
+     * the state is updated to reflect the next generation.
      */
     public void evolve() {
         int [][] temp = new int[cells.length][cells[0].length];
@@ -56,9 +65,11 @@ public class LifeGrid
                 }
                 else if (neighbors == 3 && cells[x][y] == 0) {
                     temp[x][y] = 1;
+                    visitedCells[x][y]++;
                 }
                 else if (cells[x][y] == 1) {
                     temp[x][y] = 1;
+                    visitedCells[x][y]++;
                 }
             }
         }
@@ -107,6 +118,17 @@ public class LifeGrid
             }
         }
         return num;
+    }
+
+    /**
+     * this tests if a space has ever been alive
+     * @param x the x coordinate to check
+     * @param y the y coordinate to check
+     * @return returns true or false based on that
+     */
+    public boolean hasBeenOccupied(int x, int y)
+    {
+        return visitedCells[x][y] > 0;
     }
 
 

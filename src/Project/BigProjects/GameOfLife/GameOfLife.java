@@ -75,9 +75,10 @@ public class GameOfLife extends JFrame implements ActionListener
 
     public static void main(String[] args)
     {
+
         GameOfLife window = new GameOfLife();
         window.setTitle("Game of Life 1.0");
-        window.setBounds(100, 100, 600, 400);
+        window.setBounds(0, 0, 510, 400);
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setVisible(true);

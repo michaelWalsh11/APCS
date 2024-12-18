@@ -26,6 +26,7 @@ public class LifeCanvas extends JPanel
     {
         app = applet;
 
+
         grid = new LifeGrid(50,50);
         cellSize = 10;
         // Create essential data structure storage.
@@ -139,28 +140,40 @@ public class LifeCanvas extends JPanel
         repaint();
     }
 
-    public void paintComponent(Graphics g)
-    { // repaint background
+    public void paintComponent(Graphics g) {
+        // repaint background
         super.paintComponent(g);
+        g.setColor(new Color(245, 245, 245));
+        g.fillRect(0, 0, getWidth(), getHeight());
 
-        // draw grid
+
+        g.setColor(new Color(220, 220, 220));
         int width = grid.getNumCols();
         int height = grid.getNumRows();
-        g.setColor(Color.red);
         for (int x = 1; x < width; x++) {
             g.drawLine(x * cellSize - 1, 0, x * cellSize - 1, cellSize * height - 1);
         }
         for (int y = 1; y < height; y++) {
             g.drawLine( 0, y * cellSize - 1, cellSize * width - 1, y * cellSize - 1);
         }
-        // draw populated cells
-        g.setColor(Color.red);
+
+        g.setColor(new Color(173, 216, 230));
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (grid.getCell(x, y)>0) {
+                if (grid.hasBeenOccupied(x, y)) {
+                    g.fillRect(x * cellSize, y * cellSize, cellSize - 1, cellSize - 1);
+                }
+            }
+        }
+
+        g.setColor(new Color(0, 128, 128));
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (grid.getCell(x, y) > 0) {
                     g.fillRect(x * cellSize, y * cellSize, cellSize - 1, cellSize - 1);
                 }
             }
         }
     }
+
 }
