@@ -9,19 +9,31 @@ public class LifeGrid
         cells = new int[width][height];
     }
 
+    /**
+     *  Retrieves the value of a cell
+     * @param x the x coordinate of the cell that the value is being retrieved from
+     * @param y the y coordinate of the cell that the value is being retrieved from
+     */
     public int getCell(int x, int y)
     {
         return cells[x][y];
     }
 
+    /**
+     *  Sets a cells coordinates to a specified value
+     * @param x the x coordinate of the cell that is being changed
+     * @param y the y coordinate of the cell that is being changed
+     * @param z the value of the cell
+     */
     public void setCell(int x, int y, int z)
     {
         cells[x][y] = z;
     }
 
-    /** AI GENERATED COMMENT
-     * Advances the current state of the grid by one generation according to the rules of Conway's Game of Life.
-     * <p>
+    /**
+     * Makes the next from of the game according to rules
+     * (the rules are AI generated because I didn't want to write
+     * them and I wanted to be able to see them)
      * The evolution is based on the following rules:
      * <ul>
      *   <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation.</li>
@@ -54,6 +66,11 @@ public class LifeGrid
 
     }
 
+    /**
+     *  after computing the changes we need to change them on the
+     *  main 2d array which is what this does
+     * @param temp the temporary array that stores the changes
+     */
     public void update(int [][] temp)
     {
         for (int x = 0; x < cells.length; x++)
@@ -65,6 +82,13 @@ public class LifeGrid
         }
     }
 
+    /**
+     * this method looks at a specific point of the array and find
+     * its number of neighbors
+     * @param x the x coordinate that it looks at
+     * @param y the y coordinate that it looks at
+     * @return returns the number of neighbors
+     */
     public int getNumNeighbors(int x, int y)
     {
         int num = 0;
@@ -86,12 +110,19 @@ public class LifeGrid
     }
 
 
-
+    /**
+     * this method retrieves the number of columns in the array
+     * @return the number aforementioned
+     */
     public int getNumCols()
     {
         return cells[0].length;
     }
 
+    /**
+     * this method retrieves the number of rows in the array
+     * @return the number aforementioned
+     */
     public int getNumRows()
     {
         return cells.length;
