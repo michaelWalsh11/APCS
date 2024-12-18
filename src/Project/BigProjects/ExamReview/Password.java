@@ -1,5 +1,7 @@
 package Project.BigProjects.ExamReview;
 
+import java.util.Locale;
+
 public class Password {
 
 
@@ -10,7 +12,15 @@ public class Password {
      **/
     private static boolean hasUpper(String password)
     {
-        return Character.isUpperCase(password.charAt(0));
+        for (int x = 0; x < password.length(); x++)
+        {
+            if (Character.isUpperCase(password.charAt(x)))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -20,7 +30,15 @@ public class Password {
      **/
     private static boolean hasLower(String password)
     {
-        return Character.isLowerCase(password.charAt(0));
+        for (int x = 0; x < password.length(); x++)
+        {
+            if (Character.isLowerCase(password.charAt(x)))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -30,7 +48,15 @@ public class Password {
      **/
     private static boolean hasDigit(String password)
     {
-        return Character.isDigit(password.charAt(0));
+        for (int x = 0; x < password.length(); x++)
+        {
+            if (Character.isDigit(password.charAt(x)))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -44,8 +70,8 @@ public class Password {
      **/
     public static boolean isValid(String password)
     {
-        //implemented as part (a)
-        return false;
+        return password.length() > 7 && password.length() < 17 && hasUpper(password)
+                && hasLower(password) && hasDigit(password);
     }
 
     /**
@@ -56,8 +82,15 @@ public class Password {
      */
     public static String makePasswordLetters(String phrase)
     {
-        //must be implemented as part (b)
-        return null;
+        String output = phrase.substring(0, 1);
+        for (int x = 1; x < phrase.length(); x++)
+        {
+            if (phrase.charAt(x - 1) == ' ')
+            {
+                output += phrase.charAt(x);
+            }
+        }
+        return output;
     }
 
     /**
@@ -72,7 +105,11 @@ public class Password {
      */
     public static String makePassword(String phrase, int n)
     {
-        //implemented as part (c)
+        String password = makePasswordLetters(phrase) + n;
+        if (isValid(password))
+        {
+            return password;
+        }
         return null;
     }
     /**
