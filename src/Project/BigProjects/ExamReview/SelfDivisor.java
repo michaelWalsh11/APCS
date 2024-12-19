@@ -1,9 +1,20 @@
 package Project.BigProjects.ExamReview;
-
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  12/18/24
+ * <p>
+ * Assignment:   	Exam Corrections problem
+ * <p>
+ * Attribution: My brain
+ * <p>
+ * General Description:   using the template I was given I write the methods to complete
+ * the given project
+ * <p>
+ */
 public class SelfDivisor {
 
     /**
-     *
      * @param number - the value to be tested
      * @return true if every decimal digit of number is a divisor of number; false otherwise.
      */
@@ -57,8 +68,10 @@ public class SelfDivisor {
      */
     public static void main(String[] args) {
         System.out.println(firstNumSelfDivisors(10,3));
+        System.out.println(firstNumSelfDivisors(3,8));
+        System.out.println(firstNumSelfDivisors(5,5));
 
-        //Create a few more test statements.
+
 
     }
 

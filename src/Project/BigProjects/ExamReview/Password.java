@@ -1,6 +1,18 @@
 package Project.BigProjects.ExamReview;
 
-import java.util.Locale;
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  12/18/24
+ * <p>
+ * Assignment:   	Exam Corrections problem
+ * <p>
+ * Attribution: My brain
+ * <p>
+ * General Description:   using the template I was given I write the methods to complete
+ * the given project
+ * <p>
+ */
 
 public class Password {
 
@@ -118,6 +130,8 @@ public class Password {
     public static void main(String[] args) {
 
         System.out.println(makePassword("Then took the other, as just as fair", 1915));
+        System.out.println(makePassword("I was tired", 1));
+        System.out.println(makePassword("My Name Is Michael And This Is valid?", 71));
 
     }
 

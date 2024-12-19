@@ -1,11 +1,24 @@
 package Project.BigProjects.ExamReview;
-
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  12/18/24
+ * <p>
+ * Assignment:   	Exam Corrections problem
+ * <p>
+ * Attribution: My brain
+ * <p>
+ * General Description:   using the template I was given I write the methods to complete
+ * the given project
+ * <p>
+ */
 public class WordGuess
 {
     private static final String hiddenWord = "HARPS";
 
     public static void main(String[] args)
     {
+        //Tests
         System.out.println(getHint("AAAAA"));
         System.out.println(getHint("HELLO"));
         System.out.println(getHint("HEART"));
