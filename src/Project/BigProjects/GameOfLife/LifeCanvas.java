@@ -4,10 +4,20 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 /**
- * Write a description of class LifeCanvas here.
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  12/19/2024
+ * <p>
+ * Assignment:   	Conway's Game of Life
+ * <p>
+ * Attribution: stuff from the chatGPT conversation and context clues
+ * <p>
+ * General Description:   This file makes the screen and all the data that it displays aside from the bit at the bottom
+ * <p>
+ * Advanced:  	I changed the coloring and make it display if something has been visited before
  *
- * @author (your name)
- * @version (a version number or a date)
+ * my ChatGPT conversation:
+ * <a href="https://chatgpt.com/share/67632986-17a4-8003-8c33-50391087b490">...</a>
  */
 public class LifeCanvas extends JPanel
         implements MouseListener, MouseMotionListener

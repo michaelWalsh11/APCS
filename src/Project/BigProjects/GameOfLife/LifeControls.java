@@ -3,12 +3,7 @@ package Project.BigProjects.GameOfLife;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-/**
- * Write a description of class LifeControls here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+
 public class LifeControls extends JPanel
         implements KeyListener
 {
@@ -28,15 +23,12 @@ public class LifeControls extends JPanel
     {
         this.app = app;
 
-        // pulldown menu with speeds
         Choice speedChoice = new Choice();
 
-        // add speeds
         speedChoice.addItem(slow);
         speedChoice.addItem(fast);
         speedChoice.addItem(hyper);
 
-        // when item is selected
         speedChoice.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent e) {
                 String arg = (String) e.getItem();

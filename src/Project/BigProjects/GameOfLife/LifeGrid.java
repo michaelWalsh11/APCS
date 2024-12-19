@@ -1,6 +1,21 @@
 package Project.BigProjects.GameOfLife;
 
-// https://chatgpt.com/share/67632986-17a4-8003-8c33-50391087b490
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  12/19/2024
+ * <p>
+ * Assignment:   	Conway's Game of Life
+ * <p>
+ * Attribution: Stuff from class
+ * <p>
+ * General Description:   This class does all the backend stuff and evolution for the game of life
+ * <p>
+ * Advanced:  	I added a way to check if a specific block has ever been alive or if it has always been dead
+ *  I also made it so that the screen loops around.
+ *
+ */
+
 
 public class LifeGrid
 {
@@ -108,12 +123,11 @@ public class LifeGrid
             for (int m = -1; m < 2; m++)
             {
 
-                int nx = x + n;
-                int ny = y + m;
+                int nx = (x + n + cells.length) % cells.length;
+                int ny = (y + m + cells[0].length) % cells[0].length;
 
-                if ((n != 0 || m != 0) && nx >= 0 && ny >= 0 && nx < cells.length
-                        && ny < cells[0].length && cells[nx][ny] != 0) {
-                    num ++;
+                if ((n != 0 || m != 0) && cells[nx][ny] != 0) {
+                    num++;
                 }
             }
         }

@@ -3,11 +3,19 @@ package Project.BigProjects.GameOfLife;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-/*
- * Write a description of class GameOfLife here.
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  12/19/2024
+ * <p>
+ * Assignment:   	Conway's Game of Life
+ * <p>
+ * Attribution: Just basic stuff
+ * <p>
+ * General Description:   This class puts everything together
+ * <p>
+ * Advanced:  	I resized the window itself to make the wrapping better and have it fit better
  *
- * @author (your name)
- * @version (a version number or a date)
  */
 public class GameOfLife extends JFrame implements ActionListener
 
@@ -78,7 +86,7 @@ public class GameOfLife extends JFrame implements ActionListener
 
         GameOfLife window = new GameOfLife();
         window.setTitle("Game of Life 1.0");
-        window.setBounds(0, 0, 510, 400);
+        window.setBounds(0, 0, 515, 607);
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setVisible(true);
