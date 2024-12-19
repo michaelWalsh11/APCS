@@ -73,21 +73,21 @@ public class DNAValidator {
      */
     public static int matchGenes(String dna, String genes)
     {
-        String[] geneArray = genes.split("#");
-        int totalGap = 0;
+        String[] gen = genes.split("#");
+        int sum = 0;
 
-        for (int i = 0; i < geneArray.length - 1; i++)
+        for (int i = 0; i < gen.length - 1; i++)
         {
-            int gap = matchTwoGenes(dna, geneArray[i], geneArray[i + 1]);
+            int gap = matchTwoGenes(dna, gen[i], gen[i + 1]);
 
             if (gap == -1) {
                 return -1;
             }
 
-            totalGap += gap;
+            sum += gap;
         }
 
-        return totalGap;
+        return sum;
     }
 
 
