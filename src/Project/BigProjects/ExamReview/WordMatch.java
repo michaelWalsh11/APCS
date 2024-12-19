@@ -6,7 +6,7 @@ package Project.BigProjects.ExamReview;
  * <p>
  * Assignment:   	Exam Corrections problem
  * <p>
- * Attribution: My brain
+ * Attribution: The corrections sheet on OneNote and my test
  * <p>
  * General Description:   using the template I was given I write the methods to complete
  * the given project
