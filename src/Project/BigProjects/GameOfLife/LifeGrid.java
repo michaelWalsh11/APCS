@@ -1,5 +1,7 @@
 package Project.BigProjects.GameOfLife;
 
+import java.awt.print.Printable;
+
 /**
  * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
  * @author walshm
@@ -67,7 +69,7 @@ public class LifeGrid
      * After applying these rules to all cells in the grid,
      * the state is updated to reflect the next generation.
      */
-    public void evolve() {
+    public void evolveOriginal() {
         int [][] temp = new int[cells.length][cells[0].length];
 
         for (int x = 0; x < temp.length; x++)
@@ -88,25 +90,10 @@ public class LifeGrid
                 }
             }
         }
-        update(temp);
+        cells = temp;
 
     }
 
-    /**
-     *  after computing the changes we need to change them on the
-     *  main 2d array which is what this does
-     * @param temp the temporary array that stores the changes
-     */
-    public void update(int [][] temp)
-    {
-        for (int x = 0; x < cells.length; x++)
-        {
-            for (int y = 0; y < cells[0].length; y++)
-            {
-                cells[x][y] = temp[x][y];
-            }
-        }
-    }
 
     /**
      * this method looks at a specific point of the array and find
@@ -115,7 +102,7 @@ public class LifeGrid
      * @param y the y coordinate that it looks at
      * @return returns the number of neighbors
      */
-    public int getNumNeighbors(int x, int y)
+    public int getNumNeighborsOriginal(int x, int y)
     {
         int num = 0;
         for (int n = -1; n < 2; n++)
@@ -132,6 +119,178 @@ public class LifeGrid
             }
         }
         return num;
+    }
+
+
+
+
+
+    //second method:
+    /**
+     * We changed evolve so that it uses while loops
+     * we also made the logic in two distinct steps
+     * where you decide if it is alive or dead and go
+     * after that as opposed to one larger step
+     */
+    public void evolve() {
+        int [][] temp = new int[cells.length][cells[0].length];
+
+        int x = 0;
+
+        while (x < temp.length) {
+            int y = 0;
+            while (y < temp[0].length) {
+
+                int neighbors = getNumNeighbors(x, y);
+
+                if (cells[x][y] == 1) {
+                    if (neighbors == 2 || neighbors == 3)
+                    {
+                        temp[x][y] = 1;
+
+                    }
+                    else {
+                        temp[x][y] = 0;
+                    }
+                }
+                else {
+                    if (neighbors == 3)
+                    {
+                        temp[x][y] = 1;
+
+                    }
+                    else {
+                        temp[x][y] = 0;
+                    }
+                }
+                y++;
+            }
+            x++;
+        }
+        cells = temp;
+
+    }
+
+
+    /**
+     * we changed it so that it does not use loops but can
+     * still wrap around properly combining all of our code
+     * @param x the x coordinate that it looks at
+     * @param y the y coordinate that it looks at
+     * @return returns the number of neighbors
+     */
+    public int getNumNeighbors(int x, int y)
+    {
+        int count = 0;
+        int left = (x - 1 + cells.length) % cells.length;
+        int right = (x + 1 + cells.length) % cells.length;
+        int above = (y + 1 + cells.length) % cells.length;
+        int below = (y - 1 + cells.length) % cells.length;
+        if(cells[left][above] == 1)
+            count++;
+        if(cells[left][y] == 1)
+            count++;
+        if(cells[left][below] == 1)
+            count++;
+        if(cells[right][above] == 1)
+            count++;
+        if(cells[right][y] == 1)
+            count++;
+        if(cells[right][below] == 1)
+            count++;
+        if(cells[x][above] == 1)
+            count++;
+        if(cells[x][below] == 1)
+            count++;
+        return count;
+    }
+
+
+    //second method:
+    /**
+     *  1) We moved the initialization of y outside the first loop
+     *  2) In the outer while loop we changed it from greater than to less than
+     *  3) In the inner while loop we changed it from greater than to less than
+     *  4) on the line that is supposed to say cells = temp we inverted it, so it never actually updates
+     *  5) In the second if statement we messed with DeMorgan's Law
+     *  6) We did not put the y++ so it will not loop
+     *  7) swapped x and y in the calling of a part of temp
+     *  8) added a return statement to a void method
+     */
+    public void evolveBroken() {
+        int [][] temp = new int[cells.length][cells[0].length];
+
+        int x = 0;
+        int y = 0;
+
+        while (x > temp.length) {
+            while (y > temp[0].length) {
+
+                double neighbors = getNumNeighbors(x, y);
+
+                if (cells[x][y] == 1) {
+                    if (neighbors != 2 || neighbors != 3)
+                    {
+                        temp[x][y] = 1;
+
+                    }
+                    else {
+                        temp[x][y] = 0;
+                    }
+                }
+                else {
+                    if (neighbors == 3)
+                    {
+                        temp[y][x] = 1;
+
+                    }
+                    else {
+                        temp[x][y] = 0;
+                    }
+                }
+            }
+            x++;
+        }
+        temp = cells;
+
+        //return 0;
+
+    }
+
+
+    /**
+     *
+     * 1) we removed all the count++'s
+     * 2) we swapped all the +'s and -'s int the creation of left, right, above, and below
+     * 3) we changed all the %'s to division.
+     * 4) returns the wrong information
+     * 5) we are checking if the cells are dead instead of alive;
+     *
+     *
+     * @param x the x coordinate that it looks at
+     * @param y the y coordinate that it looks at
+     * @return returns the number of neighbors
+     */
+    public int getNumNeighborsBroken(int x, int y)
+    {
+        int count = 0;
+        int left = (x + 1 + cells.length) / cells.length;
+        int right = (x - 1 + cells.length) / cells.length;
+        int above = (y - 1 + cells.length) / cells.length;
+        int below = (y + 1 + cells.length) / cells.length;
+        if(cells[left][above] == 0)
+        if(cells[left][y] == 0)
+        if(cells[left][below] == 0)
+        if(cells[right][above] == 0)
+        if(cells[right][y] == 0)
+        if(cells[right][below] == 0)
+        if(cells[x][above] == 0)
+        if(cells[x][below] == 0){
+
+        }
+
+        return left;
+
     }
 
     /**
