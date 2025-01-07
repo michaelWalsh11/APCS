@@ -79,6 +79,7 @@ public class GrayImage
 
     public static void main(String[] args)
     {
+        //YOUR TEST CASE
         int [][] pixels1 = {
                 {255, 184, 178,  84, 129},
                 { 84, 255, 255, 130,  84},
@@ -102,5 +103,22 @@ public class GrayImage
         image.processImage();
         System.out.println();
         System.out.println(image);
+
+        //MY TEST CASE
+        int[][] pixels3 = {
+                {255, 255, 255,  84, 129},
+                {255,   0, 255, 130,  84},
+                { 78, 255,  84,   0,  78},
+                { 84, 130,  84, 130,  84}
+        };
+
+        image = new GrayImage(pixels3);
+        System.out.println();
+        System.out.println(image);
+        System.out.println("White Pixels Count: " + image.countWhitePixels());
+        image.processImage();
+        System.out.println();
+        System.out.println(image);
+
     }
 }
