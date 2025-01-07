@@ -1,5 +1,21 @@
 package Project.SmallProjects.FRQpractice;
 
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  1/7/2025
+ * <p>
+ * Assignment:   	FRQ practice
+ * <p>
+ * Attribution: I worked with BOOOOOM, and we finished these questions to the best of our ability
+ * <p>
+ * General Description:  It takes a 2d array of numbers from 0 to 255 displaying colors, and counts the
+ * amount that are 255 and does some strange math to redetermine the values of the peices.
+ * <p>
+ * Advanced:  	Nothing really I just did the questions
+ *
+ */
+
 public class GrayImage
 {
     public static final int BLACK = 0;
