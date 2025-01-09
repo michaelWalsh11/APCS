@@ -1,10 +1,29 @@
 package Project.SmallProjects;
 
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  1/9/2025
+ * <p>
+ * Assignment:   	Matrix Math
+ * <p>
+ * Attribution: I did this about 2 months ago and I reused some code I also worked with BOOOOM and Jack.
+ * <p>
+ * General Description:   Matrix Addition and muliplication
+ * <p>
+ * Advanced:  	N/A
+ *
+ */
+
 import java.util.Arrays;
 
 public class MatrixMath {
 
 
+    /**
+     *  This prints out the matrix
+     * @param mat matrix to print
+     */
     public static void printMatrix(int[][] mat) {
         if (mat != null)
         {
@@ -23,11 +42,11 @@ public class MatrixMath {
 
 
     /**
-     * @param a
-     * @param b
+     * @param a matrix 1
+     * @param b matrix 2
      * @return
      *
-     * this method should multiply two
+     * this method should add two
      * matrices and return the output
      */
 
@@ -50,6 +69,15 @@ public class MatrixMath {
 
         return temp;
     }
+
+    /**
+     *
+     * this should multiply matrices
+     *
+     * @param a matrix 1
+     * @param b matrix 2
+     * @return multiplied matrix
+     */
     public static int [][] matrixMultiplcation(int [][] a, int [][] b)
     {
 
