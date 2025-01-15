@@ -66,6 +66,18 @@ public class Fraction
     return new Fraction(num + m * denom, denom);
   }
 
+  public Fraction subtract(Fraction other)
+  {
+    int newNum = num * other.denom - denom * other.num;
+    int newDenom = denom * other.denom;
+    return new Fraction(newNum, newDenom);
+  }
+
+  public Fraction subtract(int m)
+  {
+    return new Fraction(num - m * denom, denom);
+  }
+
   // Returns the product of this fraction and other
   public Fraction multiply(Fraction other)
   {
@@ -78,6 +90,20 @@ public class Fraction
   public Fraction multiply(int m)
   {
     return new Fraction(num * m, denom);
+  }
+
+
+  public Fraction divide(Fraction other)
+  {
+    int newNum = num / other.num;
+    int newDenom = denom * other.denom;
+    return new Fraction(newNum, newDenom);
+  }
+
+  // Returns the product of this fraction and m
+  public Fraction divide(int m)
+  {
+    return new Fraction(num / m, denom);
   }
 
   // Returns the value of this fraction as a double

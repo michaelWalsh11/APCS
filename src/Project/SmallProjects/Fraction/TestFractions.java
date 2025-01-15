@@ -32,6 +32,9 @@ public class TestFractions
     Fraction product = f1.multiply(f2);
     System.out.println(f1 + " * " + f2 + " = " + product);
 
+    Fraction subtract = f1.subtract(f2);
+    System.out.println();
+
     System.out.println();
   }
 
