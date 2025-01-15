@@ -123,9 +123,6 @@ public class LifeGrid
 
 
 
-
-
-
     //second method:
     /**
      * We changed evolve so that it uses while loops
