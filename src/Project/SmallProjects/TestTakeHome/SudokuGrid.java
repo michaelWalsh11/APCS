@@ -3,21 +3,17 @@ package Project.SmallProjects.TestTakeHome;
 import java.util.Arrays;
 
 /**
- * You should use this file to complete your Sudoku problem
- * as many of its components are related to Class Design.
- * Your task is to implement the required components of
- * maintaining and using information about the given "board".
- * You may find looking at the GameOfLife and Chomp to
- * be useful contexts for this work.
- * 
- * You are welcome to implement some testing device, if
- * you wish.
- */
-/**
- * @author yoderr
- *	Note:  It will require some ingenuity and exploration on your part to actually "test" 
- *	this particular exercise because none of these methods are declared as static and
- *	we have not reinforced class design and class testing yet. (That is Ch10.)
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  1/15/24
+ * <p>
+ * Assignment:   	TakeHomeTest
+ * <p>
+ * Attribution: My pure genius and the question sheet
+ * <p>
+ * General Description:  I filled out the class layout provided and filled in the methods along with testing them.
+ * <p>
+ * Advanced:  I completed all of them and tested them.
  *
  */
 public class SudokuGrid {
@@ -31,11 +27,24 @@ public class SudokuGrid {
 	}
 	
 	//parts e-i
+
+	/**
+	 * gets a specified cell
+	 * @param row row of cell
+	 * @param col col of cell
+	 * @return value of cell at points
+	 */
 	public int getCell(int row, int col)
 	{
 		return grid[row][col];
 	}
-	
+
+	/**
+	 * tests if there is a conflict for the number in the column at the point
+	 * @param col col to check
+	 * @param value value to check for conflicts
+	 * @return returns true or false based on check
+	 */
 	public boolean isOkColumn(int col, int value)
 	{
 		for (int y = 0; y < grid[0].length; y++)
@@ -47,7 +56,13 @@ public class SudokuGrid {
 		}
 		return true;
 	}
-	
+
+	/**
+	 * tests if there is a conflict for the number in the row at the point
+	 * @param row row to check
+	 * @param value value to check for conflicts
+	 * @return returns true or false based on check
+	 */
 	public boolean isOkRow(int row, int value)
 	{
 		for (int x = 0; x < grid.length; x++)
@@ -59,7 +74,14 @@ public class SudokuGrid {
 		}
 		return true;
 	}
-	
+
+	/**
+	 * checks the 3x3 box starting in the top left corner and scanning for conflicts
+	 * @param row row of the box to check
+	 * @param col col of the box to check
+	 * @param value value of the box to check
+	 * @return true or false based on check
+	 */
 	public boolean isOkSector(int row, int col, int value)
 	{
 		int topLeftRow = row - (row % 3);
@@ -77,7 +99,13 @@ public class SudokuGrid {
 		}
 		return true;
 	}
-	
+
+	/**
+	 * checks if the value of the cell will be legal and if so sets the value
+	 * @param row row to set value
+	 * @param col col to set value
+	 * @param value value to set
+	 */
 	public void setCell(int row, int col, int value)
 	{
 		if (isOkColumn(col, value) && isOkRow(row, value) && isOkSector(row, col, value))

@@ -1,9 +1,31 @@
 package Project.SmallProjects.TestTakeHome;
 
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  1/15/24
+ * <p>
+ * Assignment:   	TakeHomeTest
+ * <p>
+ * Attribution: My pure genius and the question sheet
+ * <p>
+ * General Description:  I wrote the code to complete three of the questions and a few helper methods
+ * <p>
+ * Advanced:  I completed all of them and tested them
+ *
+ */
+
 import java.util.Arrays;
 
 public class TakeHomeTest {
 
+    /**
+     * this method scan through a 2d array and adds up all the
+     * values in a column and puts together a 1d array of the
+     * addition
+     * @param mat 2d array
+     * @return the 1d array of sums of columns
+     */
     public static int [] sumColumns(int [][] mat)
     {
         int [] output = new int[mat[0].length];
@@ -18,9 +40,14 @@ public class TakeHomeTest {
     }
 
 
+    /**
+     * if a given row and column both contain 3 or more a number
+     * then it should print out that number along with the coordinates
+     * that the search originated from
+     * @param grid 2d array to scan
+     */
     public static void crossStuff(int [][] grid)
     {
-        int num = 0;
         for (int x = 0; x < grid.length; x++)
         {
             for (int y = 0; y < grid[0].length; y++)
@@ -34,11 +61,25 @@ public class TakeHomeTest {
         }
     }
 
+    /**
+     * helper method that just prints out the information if it matches
+     * @param x the x coordinate
+     * @param y the y coordinate
+     * @param num the value that meets the conditions
+     */
     private static void printXY(int x, int y, int num)
     {
         System.out.println("(" + x + ", " + y + ")" + "     " + num);
     }
 
+    /**
+     * helper method that actually scans the row and column and the specified
+     * location
+     * @param grid the 2d that is being scanned
+     * @param x the x row
+     * @param y the y column
+     * @return return the number that meets the conditions or -1 if none do
+     */
     private static int scanXY(int [][] grid, int x, int y)
     {
         int numX = 0;
@@ -71,6 +112,13 @@ public class TakeHomeTest {
         return -1;
     }
 
+    /**
+     * takes an odd number n and makes a square 2d array that is populated so that
+     * each row adds up to the same number along with each column and diagonal all
+     * add up to the same number
+     * @param n the input number
+     * @return return the 2d array that is generated
+     */
     public static int[][] makeMagicSquare(int n)
     {
         if (n % 2 == 0)
@@ -122,6 +170,7 @@ public class TakeHomeTest {
 
     public static void main(String [] args)
     {
+        //Test for #1
         int[][] array = {
                 {0, 1, 2, 3, 4},
                 {0, 2, 3, 4, 5},
@@ -133,8 +182,10 @@ public class TakeHomeTest {
         int [] output = sumColumns(array);
         System.out.println(Arrays.toString(output));
 
+        //Test for #2
         crossStuff(array);
 
+        //Test for #3
         int [][] test = makeMagicSquare(3);
         for (int [] row : test)
         {
