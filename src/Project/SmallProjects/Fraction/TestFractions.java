@@ -33,7 +33,30 @@ public class TestFractions
     System.out.println(f1 + " * " + f2 + " = " + product);
 
     Fraction subtract = f1.subtract(f2);
+    System.out.println(f1 + " - " + f2 + " = " + subtract);
+
+    Fraction divide = f1.divide(f2);
+    System.out.println(f1 + " / " + f2 + " = " + divide);
+
     System.out.println();
+  }
+
+  public static void testArithmeticWholeNumbers()
+  {
+    Fraction f1 = new Fraction(1, 2);
+    int m = 3;
+
+    Fraction sum = f1.add(m);
+    System.out.println(f1 + " + " + m + " = " + sum);
+
+    Fraction product = f1.multiply(m);
+    System.out.println(f1 + " * " + m + " = " + product);
+
+    Fraction subtract = f1.subtract(m);
+    System.out.println(f1 + " - " + m + " = " + subtract);
+
+    Fraction divide = f1.divide(m);
+    System.out.println(f1 + " / " + m + " = " + divide);
 
     System.out.println();
   }
@@ -48,6 +71,7 @@ public class TestFractions
   public static void main(String[] args)
   {
     testConstructors();
+    testArithmeticWholeNumbers();
     testArithmetic();
     testValues();
   }

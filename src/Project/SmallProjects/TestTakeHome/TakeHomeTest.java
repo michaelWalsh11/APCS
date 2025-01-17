@@ -182,8 +182,12 @@ public class TakeHomeTest {
         int [] output = sumColumns(array);
         System.out.println(Arrays.toString(output));
 
+        System.out.println();
+
         //Test for #2
         crossStuff(array);
+
+        System.out.println();
 
         //Test for #3
         int [][] test = makeMagicSquare(3);

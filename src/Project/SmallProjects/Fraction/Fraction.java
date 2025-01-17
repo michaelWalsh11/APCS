@@ -95,15 +95,17 @@ public class Fraction
 
   public Fraction divide(Fraction other)
   {
-    int newNum = num / other.num;
-    int newDenom = denom * other.denom;
+    int newNum = this.num * other.denom;
+    int newDenom = this.denom * other.num;
     return new Fraction(newNum, newDenom);
   }
 
   // Returns the product of this fraction and m
   public Fraction divide(int m)
   {
-    return new Fraction(num / m, denom);
+    Fraction f1 = new Fraction(this.num, this.denom);
+    Fraction f2 = new Fraction(m,  1);
+    return f1.divide(f2);
   }
 
   // Returns the value of this fraction as a double
