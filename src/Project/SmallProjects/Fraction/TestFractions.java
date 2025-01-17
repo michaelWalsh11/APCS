@@ -5,6 +5,21 @@ package Project.SmallProjects.Fraction;
  * Author: Blair
  */
 
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  1/17/25
+ * <p>
+ * Assignment:   	Fraction classes
+ * <p>
+ * Attribution: I worked with Miller
+ * <p>
+ * General Description:   I added some test cases and a test method
+ * <p>
+ * Advanced:  	Self Documenting Code
+ *
+ */
+
 public class TestFractions
 {
   public static void testConstructors()

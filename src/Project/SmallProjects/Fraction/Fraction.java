@@ -7,6 +7,20 @@ package Project.SmallProjects.Fraction;
  * Author: Alex
  */
 
+/**
+ * HONOR PLEDGE: All work here is honestly obtained and is my own.  Signed:  Michael Walsh
+ * @author walshm
+ * Date of Completion:  1/17/25
+ * <p>
+ * Assignment:   	Fraction classes
+ * <p>
+ * Attribution: I had to google how to divide fractions becuase I forgot and worked with Miller
+ * <p>
+ * General Description:   I added the subtraction and division methods
+ * <p>
+ * Advanced:  	NO
+ *
+ */
 public class Fraction
 {
 
@@ -66,6 +80,7 @@ public class Fraction
     return new Fraction(num + m * denom, denom);
   }
 
+  // Returns the difference between this fraction and other
   public Fraction subtract(Fraction other)
   {
     int newNum = num * other.denom - denom * other.num;
@@ -73,6 +88,7 @@ public class Fraction
     return new Fraction(newNum, newDenom);
   }
 
+  // Returns the difference between this fraction and m
   public Fraction subtract(int m)
   {
     return new Fraction(num - m * denom, denom);
@@ -92,7 +108,7 @@ public class Fraction
     return new Fraction(num * m, denom);
   }
 
-
+  // Returns the quotient of this fraction and other
   public Fraction divide(Fraction other)
   {
     int newNum = this.num * other.denom;
@@ -100,7 +116,7 @@ public class Fraction
     return new Fraction(newNum, newDenom);
   }
 
-  // Returns the product of this fraction and m
+  // Returns the quotient of this fraction and other
   public Fraction divide(int m)
   {
     Fraction f1 = new Fraction(this.num, this.denom);
